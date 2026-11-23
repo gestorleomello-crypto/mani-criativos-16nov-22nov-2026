@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Criativos &amp; Produtos · Mani</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..600&family=Inter:wght@400;500;600;700&display=swap">
+<style>
+/* Identidade clara, premium — fundo branco, verde sofisticado nos detalhes, Fraunces + Inter. Design comprometido com tema claro. */
+:root{
+  color-scheme:light;
+  --bg:#ffffff; --bg-alt:#f6f8f4; --surface:#ffffff; --ink:#1b2620; --muted:#64706a;
+  --line:#e6eae1; --line-2:#eef1ea; --pine:#1f5b3c; --pine-ink:#184a30; --sage:#8aae96; --sage-soft:#eef4ec;
+  --good:#1f7a4d; --warn:#9a6a16; --warn-bg:#f8efd9; --crit:#a8392a; --crit-bg:#f8e7e2;
+  --shadow:0 1px 2px rgba(27,42,34,.04),0 10px 30px rgba(27,42,34,.05);
+  --serif:"Fraunces",Georgia,"Times New Roman",serif;
+  --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.55;font-size:15.5px;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--serif);font-weight:560;text-wrap:balance;line-height:1.1;margin:0;color:var(--pine-ink)}
+h2{font-size:clamp(1.55rem,3.4vw,2.2rem);letter-spacing:-.012em;margin-bottom:.1em}
+h3{font-size:1.12rem;font-weight:600;color:var(--ink)}
+p{margin:.5em 0}
+a{color:var(--pine);text-underline-offset:2px}
+.eyebrow{font-family:var(--sans);font-weight:700;font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:var(--pine)}
+.lede{color:var(--muted);font-size:1.03rem;max-width:64ch}
+.num{font-variant-numeric:tabular-nums}
+.sticky{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(255,255,255,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.sticky .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:11px}
+.sticky b{font-family:var(--serif);font-weight:600;color:var(--pine-ink)}
+.tag{font-size:.72rem;color:var(--muted);font-variant-numeric:tabular-nums}
+section{padding-block:40px;border-top:1px solid var(--line)}
+section.alt{background:var(--bg-alt);border-top:1px solid var(--line)}
+.hero{padding-block:54px 34px}
+.hero h1{font-size:clamp(2.6rem,6.8vw,4.6rem);letter-spacing:-.022em;margin:.14em 0 .2em}
+.hero .sub{display:flex;gap:10px 22px;flex-wrap:wrap;color:var(--muted);font-size:.9rem;margin-top:18px}
+.hero .sub b{color:var(--ink)}
+.findings{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(246px,1fr));gap:15px;counter-reset:f}
+.findings li{counter-increment:f;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 18px 18px 50px;position:relative;box-shadow:var(--shadow);font-size:.93rem}
+.findings li::before{content:counter(f);position:absolute;left:16px;top:17px;width:24px;height:24px;border-radius:50%;background:var(--sage-soft);color:var(--pine-ink);font-size:.78rem;font-weight:700;display:grid;place-items:center;font-family:var(--serif);border:1px solid var(--line)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.subhead{display:flex;align-items:baseline;gap:10px;margin:26px 0 14px;flex-wrap:wrap}
+.subhead h3{font-family:var(--serif);font-size:1.3rem;color:var(--pine-ink)}
+.subhead .cap{font-size:.8rem;color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:11px;min-width:0}
+.card .top{display:flex;justify-content:space-between;gap:8px;align-items:start}
+.card h3{font-size:1.04rem;line-height:1.2}
+.chip{display:inline-flex;align-items:center;gap:5px;font-size:.68rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;padding:3px 9px;border-radius:999px;white-space:nowrap}
+.c-active{background:var(--sage-soft);color:var(--good)}
+.c-paused{background:var(--warn-bg);color:var(--warn)}
+.c-crit{background:var(--crit-bg);color:var(--crit)}
+.c-new{background:#e7eef8;color:#2b5aa0}
+.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:11px 8px;font-variant-numeric:tabular-nums;border-top:1px solid var(--line-2);padding-top:12px}
+.metrics div{min-width:0}
+.metrics .m{font-size:.64rem;color:var(--muted);text-transform:uppercase;letter-spacing:.03em}
+.metrics .x{font-size:1.02rem;font-weight:600;font-family:var(--serif);color:var(--ink)}
+.why{font-size:.88rem;color:var(--muted)}
+.why b{color:var(--ink)}
+.cardfoot{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;font-size:.82rem}
+.cardfoot a{display:inline-flex;align-items:center;gap:5px;border:1px solid var(--line);border-radius:8px;padding:5px 10px;text-decoration:none;color:var(--pine);background:var(--bg-alt)}
+.cardfoot .lowconf{color:var(--muted);font-size:.76rem;align-self:center}
+.pos{color:var(--good)}.neg{color:var(--crit)}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:.88rem;font-variant-numeric:tabular-nums}
+th,td{padding:11px 13px;text-align:right;border-bottom:1px solid var(--line-2);white-space:nowrap}
+th:first-child,td:first-child{text-align:left;white-space:normal;min-width:180px}
+thead th{font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);font-weight:700;background:var(--bg-alt)}
+tbody tr:last-child td{border-bottom:0}
+.cls{font-weight:700;font-size:.74rem;text-transform:uppercase;letter-spacing:.02em}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.q{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.q .item{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--sage);border-radius:0 12px 12px 0;padding:14px 16px;box-shadow:var(--shadow)}
+.q .item p{margin:.2em 0;font-size:.9rem}
+.q .item .ask{font-weight:650;color:var(--pine-ink)}
+.brief{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:16px}
+.brief .b{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:var(--shadow);min-width:0}
+.brief .b .p{font-size:.68rem;font-weight:700;color:var(--pine);letter-spacing:.06em;text-transform:uppercase}
+.brief .b h3{margin:.3em 0 .1em}
+.muted{color:var(--muted)}
+.flag{background:var(--sage-soft);border:1px solid var(--line);border-radius:12px;padding:13px 15px;font-size:.86rem;margin-top:16px}
+@media (max-width:720px){.cols,.q{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+
+<div class="sticky"><div class="wrap"><b><span>Mani</span> — Criativos & Produtos</b><span class="tag"><span>16/11</span> – <span>22/11/2026</span></span></div></div>
+
+<div class="wrap">
+
+<header class="hero">
+  <div class="eyebrow">Para o time de conteúdo · Meta Ads + GA4 · Edição semanal</div>
+  <h1>Criativos & Produtos</h1>
+  <p class="lede"><span>Quais peças estão respondendo e o que acompanhar. Compras e receita dos anúncios são as atribuídas pela Meta; unidades, carrinhos e receita de item vêm do Google Analytics, e as duas fontes não se somam. <b>Nesta semana a amostra é pequena</b>: nenhum anúncio chegou ao mínimo de compras para ser tratado como vencedor, então os destaques são sinais, não conclusões.</span></p>
+  <div class="sub">
+    <span>Conta <b><span>[C.A]MANI</span></b></span><span>Janela <b><span>16/11</span>–<span>22/11/2026</span></b> (seg–dom)</span>
+    <span>Fontes <b>Meta Ads · GA4</b></span>
+  </div>
+</header>
+
+<section>
+  <div class="eyebrow">O essencial</div>
+  <h2>Principais descobertas</h2>
+  <p class="lede" style="margin-bottom:22px">Quatro leituras que orientam a produção de conteúdo desta semana.</p>
+  <ol class="findings" style="grid-template-columns:repeat(auto-fit,minmax(max(246px,clamp(calc(25% - 11.25px),calc((1029px - 100%) * 999),calc(50% - 7.5px))),1fr))">
+      <li><b>Semana de amostra pequena.</b> O maior volume de um anúncio foi de <span>1</span> compra atribuída pela Meta, e quatro anúncios ficaram nesse mesmo patamar — abaixo do mínimo para tratar qualquer um como vencedor. Nenhum se repetiu nas duas semanas com amostra suficiente, então as leituras abaixo são sinais, não conclusões.</li>
+      <li><b>A peça com mais unidades é a <span>Camisa Masculina Puro Linho - Manga Curta</span>:</b> <span>2</span> unidades e <span>15</span> carrinhos em <span>294</span> visualizações no Google Analytics, com <span>0,7%</span> de compras por visualização contra <span>0,21%</span> do catálogo. Isso é fato; com esse volume, ainda não dá para separar do acaso. Entre os anúncios com compra atribuída, só o de manga curta azul apresenta a peça — e é o de maior investimento e o de menor ROAS do grupo.</li>
+      <li><b>O anúncio de maior receita atribuída é de manga longa, e nenhuma camisa de manga longa registrou unidade.</b> Fato: esse anúncio soma <span>R$769</span> de receita atribuída pela Meta sobre <span>1</span> compra, enquanto as duas camisas de manga longa do Google Analytics ficaram sem unidade — a <span>Camisa Masculina Puro Linho - Manga Longa</span>, com <span>571</span> visualizações, e a <span>Camisa Masculina Puro Linho Gola Padre - Manga Longa</span>, com <span>70</span>. Hipótese a conferir: a atribuição é do anúncio, não do produto, e nenhum dos dois anúncios de manga longa diz qual peça apresenta, então não dá para dizer qual saiu.</li>
+      <li><b>A <span>CAMISETA CLASSIC</span> teve o maior número de carrinhos da semana e nenhuma unidade:</b> <span>35</span> carrinhos em <span>189</span> visualizações no Google Analytics. Fato. Hipótese a testar: o interesse não chega à compra; a peça não aparece em nenhum dos anúncios com compra atribuída nesta semana, e com esse volume a ausência de unidade ainda cabe no acaso.</li>
+  </ol>
+</section>
+
+<section class="alt">
+  <div class="eyebrow">O que reproduzir</div>
+  <h2>Melhores criativos dos últimos 7 dias</h2>
+  <p class="lede">Os anúncios que mais venderam na janela, identificados por ID real, com as métricas individuais que explicam por que merecem atenção. ROAS e CPA de combinação campanha×anúncio; eficiência exige amostra, por isso o volume de compras aparece em cada card.</p>
+  <div class="grid" style="margin-top:18px">
+    <p class="why">Nenhum criativo nesta categoria nesta semana.</p>
+  </div>
+
+  <div class="subhead"><h3>Promissores</h3><span class="cap">Sinal positivo inicial — resultado promissor, ainda com poucas compras para confirmar consistência</span></div>
+  <div class="grid">
+    <div class="card"><div class="top"><h3><span>Bermuda de Linho — ângulo: look de verão</span></h3><span class="chip c-new">Sinal inicial</span></div><div class="why">ROAS mais alto da semana sobre uma única compra atribuída e o menor investimento entre os anúncios com compra: número alto, amostra mínima. A bermuda também registrou unidade no Google Analytics nesta semana, o que dá apoio nas duas fontes.</div><div class="metrics"><div><div class="m">Invest.</div><div class="x"><span>R$8</span></div></div><div><div class="m">Compras</div><div class="x"><span>1</span></div></div><div><div class="m">ROAS</div><div class="x"><span>31,4</span>*</div></div></div><div class="cardfoot"><a href="https://www.instagram.com/p/DdCIj-JA6cd/" target="_blank" rel="noopener">▶ Post IG</a><span class="lowconf">*amostra baixa</span></div></div>
+    <div class="card"><div class="top"><h3><span>Camisa Manga Longa — ângulo: linho de qualidade sem pagar caro</span></h3><span class="chip c-new">Sinal inicial</span></div><div class="why">Maior receita atribuída pela Meta na semana, ainda sobre uma única compra. O anúncio não identifica qual das duas camisas de manga longa do Google Analytics apresenta, e nenhuma delas registrou unidade na janela.</div><div class="metrics"><div><div class="m">Invest.</div><div class="x"><span>R$71</span></div></div><div><div class="m">Compras</div><div class="x"><span>1</span></div></div><div><div class="m">ROAS</div><div class="x"><span>10,8</span>*</div></div></div><div class="cardfoot"><a href="https://www.instagram.com/p/DekKfWKgNFV/" target="_blank" rel="noopener">▶ Post IG</a><span class="lowconf">*amostra baixa</span></div></div>
+    <div class="card"><div class="top"><h3><span>Camisa Manga Longa Verde — ângulo: manga longa no calor, só se for linho</span></h3><span class="chip c-new">Sinal inicial</span></div><div class="why">Uma compra atribuída com ROAS alto e o menor custo por clique no link entre os anúncios com compra. Como no outro sinal de manga longa, a peça apresentada não é identificada no anúncio.</div><div class="metrics"><div><div class="m">Invest.</div><div class="x"><span>R$52</span></div></div><div><div class="m">Compras</div><div class="x"><span>1</span></div></div><div><div class="m">ROAS</div><div class="x"><span>6,0</span>*</div></div></div><div class="cardfoot"><a href="https://www.instagram.com/p/DeOxRZpA2sf/" target="_blank" rel="noopener">▶ Post IG</a><span class="lowconf">*amostra baixa</span></div></div>
+  </div>
+  <div class="flag">🔎 <b>Prévias.</b> "Post IG" abre o post real usado como criativo; "Prévia do anúncio" abre o preview do Meta. O conteúdo do vídeo costuma exigir login do Instagram/Meta.</div>
+</section>
+
+<section>
+  <div class="eyebrow">Duas semanas</div>
+  <h2>Criativos que se destacam por mais tempo</h2>
+  <p class="lede">Comparamos <span>09/11</span>–<span>15/11</span> com <span>16/11</span>–<span>22/11</span>, sempre pelo <b>ID real</b> do anúncio. A regra de ouro é separar <b>eficiência</b> (ROAS/CPA, proporcionais) de <b>investimento</b>: menos compras com menos verba não é perda de força. Amostras pequenas aparecem sinalizadas.</p>
+
+  <div class="subhead"><h3>Consistentes</h3><span class="cap">bons resultados nas duas semanas — referências prioritárias</span></div>
+  <div class="grid">
+    <p class="why">Nenhum criativo nesta categoria nesta semana.</p>
+  </div>
+
+  <div class="subhead"><h3>Novos destaques da semana</h3><span class="cap">passaram a performar agora — recuperação, mais entrega ou estreia</span></div>
+  <div class="grid">
+    <p class="why">Nenhum criativo nesta categoria nesta semana.</p>
+  </div>
+
+  <div class="subhead"><h3>Em observação e saídas do topo</h3><span class="cap">mudanças de entrega ou de eficiência — mencionadas para explicar o ranking</span></div>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Criativo</th><th>Produto</th><th>S1 compras</th><th>S1 ROAS</th><th>S2 compras</th><th>S2 ROAS</th><th>Leitura</th></tr></thead>
+    <tbody>
+
+    </tbody>
+  </table></div>
+  <p class="why" style="margin-top:12px"><span>Nenhum anúncio entrou na comparação entre semanas. O maior volume desta semana foi de <span>1</span> compra atribuída pela Meta, abaixo do mínimo de amostra para entrar pela semana atual; pela semana anterior a exigência de compras é maior, e nenhum anúncio alcançou esse patamar. Sem anúncio com amostra suficiente, não há leitura de consistência entre as duas janelas.</span></p>
+</section>
+
+<section class="alt">
+  <div class="eyebrow">Vitrine</div>
+  <h2>Produtos que mais venderam</h2>
+  <p class="lede">Métricas de item do GA4 na janela (visualizações, carrinhos, unidades, receita). Não usamos "sessões por produto": o agrupamento repete contagens entre variantes — lacuna declarada.</p>
+  <div style="margin-top:16px">
+  <div class="tablewrap"><table>
+    <thead><tr><th>Produto</th><th>Receita</th><th>Unid.</th><th>Views</th><th>ATC</th><th>Compras por visualização</th></tr></thead>
+    <tbody>
+      <tr><td><span>Camisa Masculina Puro Linho - Manga Curta</span></td><td><span>R$660</span></td><td><span>2</span></td><td><span>294</span></td><td><span>15</span></td><td><span>0,7%</span></td></tr>
+      <tr><td><span>Bermuda Masculina Linho</span></td><td><span>R$262</span></td><td><span>1</span></td><td><span>176</span></td><td><span>14</span></td><td><span>0,6%</span></td></tr>
+      <tr><td><span>CAMISETA CLASSIC</span></td><td><span>R$0</span></td><td><span>0</span></td><td><span>189</span></td><td><span>35</span></td><td><span>0,0%</span></td></tr>
+      <tr><td><span>Camisa Masculina Puro Linho - Manga Longa</span></td><td><span>R$0</span></td><td><span>0</span></td><td><span>571</span></td><td><span>9</span></td><td><span>0,0%</span></td></tr>
+      <tr><td><span>GOLA POLO</span></td><td><span>R$0</span></td><td><span>0</span></td><td><span>57</span></td><td><span>3</span></td><td><span>0,0%</span></td></tr>
+      <tr><td><span>CAMISETA CLASSIC BRASIL</span></td><td><span>R$0</span></td><td><span>0</span></td><td><span>9</span></td><td><span>0</span></td><td><span>0,0%</span></td></tr>
+      <tr><td><span>CAMISETA TRICOT ESSENCE</span></td><td><span>R$0</span></td><td><span>0</span></td><td><span>20</span></td><td><span>3</span></td><td><span>0,0%</span></td></tr>
+      <tr><td><span>Calça Masculina Sarja</span></td><td><span>R$0</span></td><td><span>0</span></td><td><span>42</span></td><td><span>0</span></td><td><span>0,0%</span></td></tr>
+      <tr><td><span>Camisa Masculina Puro Linho Gola Padre - Manga Longa</span></td><td><span>R$0</span></td><td><span>0</span></td><td><span>70</span></td><td><span>0</span></td><td><span>0,0%</span></td></tr>
+      <tr><td><span>Camiseta Masculina Algodão Pima</span></td><td><span>R$0</span></td><td><span>0</span></td><td><span>22</span></td><td><span>5</span></td><td><span>0,0%</span></td></tr>
+    </tbody>
+  </table></div>
+  </div>
+  <div class="subhead"><h3>Oportunidades nos produtos</h3><span class="cap">muito interesse × pouca exposição</span></div>
+  <div class="cols">
+    <div style="min-width:0">
+  <div class="tablewrap"><table>
+    <thead><tr><th>Muito interesse, pouca compra</th><th>Views</th><th>Compras por visualização</th><th>Unid.</th></tr></thead>
+    <tbody>
+
+    </tbody>
+  </table></div>
+      <p class="why"><span>Amostra insuficiente: nenhuma peça chegou a <span>1.463</span> visualizações, o mínimo para ler a conversão de um produto contra a média de compras por visualização do catálogo nesta semana (<span>0,21%</span>).</span></p>
+    </div>
+    <div style="min-width:0">
+  <div class="tablewrap"><table>
+    <thead><tr><th>Pouca exposição, boa resposta</th><th>Views</th><th>Compras por visualização</th><th>Unid.</th></tr></thead>
+    <tbody>
+
+    </tbody>
+  </table></div>
+      <p class="why"><span>Nenhuma peça abaixo de <span>1.463</span> visualizações superou a média de compras por visualização do catálogo (<span>0,21%</span>) além do que o acaso explica. A <span>Camisa Masculina Puro Linho - Manga Curta</span> e a <span>Bermuda Masculina Linho</span> ficaram acima dessa média — <span>0,7%</span> e <span>0,6%</span> de compras por visualização —, mas em <span>294</span> e <span>176</span> visualizações o volume ainda não sustenta a leitura.</span></p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">A conexão</div>
+  <h2>Cruzamento entre criativos e produtos</h2>
+  <div class="q" style="margin-top:16px">
+    <div class="item"><p class="ask">Anunciamos o que mais vende?</p><p><span>Em parte. Dos quatro anúncios com compra atribuída pela Meta nesta semana, dois apresentam justamente as peças que registraram unidade no Google Analytics: a <span>Bermuda Masculina Linho</span> e a <span>Camisa Masculina Puro Linho - Manga Curta</span>. Os outros dois são de camisa de manga longa e não identificam a peça — e as duas camisas de manga longa do Google Analytics ficaram sem unidade registrada. A <span>Camisa Masculina Puro Linho - Manga Curta</span>, que teve mais unidades (<span>2</span>), é apresentada por um só desses anúncios, o de manga curta azul, que é o de maior investimento (<span>R$107</span>) e o de menor ROAS (<span>3,1</span>) entre os quatro.</span></p></div>
+    <div class="item"><p class="ask">O que vende no site e recebe pouca mídia?</p><p><span>Nesta semana não dá para apontar uma peça nessa situação: as duas que registraram unidade no Google Analytics — a <span>Camisa Masculina Puro Linho - Manga Curta</span> e a <span>Bermuda Masculina Linho</span> — estão entre as apresentadas pelos anúncios com compra atribuída, e este relatório não mede a entrega por produto, então a comparação direta é uma lacuna declarada. O caso mais próximo é a <span>CAMISETA CLASSIC</span>: <span>35</span> carrinhos em <span>189</span> visualizações e nenhuma unidade registrada, sem aparecer em nenhum dos anúncios com compra atribuída nesta semana. É hipótese para testar, não conclusão.</span></p></div>
+    <div class="item"><p class="ask">Que formato dá para transferir?</p><p><span>Nenhum formato está confirmado: nenhum anúncio chegou ao mínimo de compras e nenhum se repetiu nas duas semanas com amostra suficiente. Os quatro anúncios com compra atribuída pela Meta são todos de ângulo único — três sobre o linho das camisas e um sobre a bermuda em look de verão. Com uma compra em cada, isso é coincidência de formato entre amostras mínimas, não formato validado: vale como padrão a observar.</span></p></div>
+    <div class="item"><p class="ask">Onde ampliar o repertório?</p><p><span>Fora das duas peças que registraram unidade. Há interesse sem compra espalhado no catálogo: a <span>CAMISETA CLASSIC</span> (<span>189</span> visualizações e <span>35</span> carrinhos), a <span>Camisa Masculina Puro Linho - Manga Longa</span> (<span>571</span> e <span>9</span>), a <span>Camisa Masculina Puro Linho Gola Padre - Manga Longa</span> (<span>70</span>) e a <span>GOLA POLO</span> (<span>57</span>) — todas sem unidade registrada no Google Analytics nesta semana. Com esse volume, a ausência de compra ainda cabe no acaso: entram como teste, não como aposta.</span></p></div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="eyebrow">O que priorizar</div>
+  <h2>Direcionamento de novos criativos</h2>
+  <p class="lede">O que vale a pena gravar e por quê, com base nos dados desta semana. Como produzir e apresentar cada peça é decisão do time da <span>Mani</span>. <span>Nesta semana nenhum criativo se manteve por duas semanas; as referências vêm da semana atual.</span></p>
+  <div class="brief" style="margin-top:18px">
+    <div class="b"><div class="p">Testar primeiro</div><h3><span>Camisa Masculina Puro Linho - Manga Curta</span></h3><p class="why"><b>Por quê:</b> é a peça com mais unidades e a maior taxa de compras por visualização da semana no Google Analytics — <span>2</span> unidades e <span>15</span> carrinhos em <span>294</span> visualizações, <span>0,7%</span> contra <span>0,21%</span> do catálogo —, e entre os anúncios com compra atribuída só o de manga curta azul a apresenta, justamente o de maior investimento e menor ROAS do grupo.</p><p class="why"><b>Oportunidade:</b> variar o ângulo mantendo a mesma peça, para separar o que é interesse na camisa do que é efeito do argumento, e verificar se a resposta registrada no Google Analytics se sustenta com mais entrega.</p><p class="why"><b>Referência:</b> o anúncio de manga curta azul com ângulo sobre o linho puro que deixa o corpo respirar; ele registrou compra, mas não entrou nos destaques desta semana.</p></div>
+    <div class="b"><div class="p">Confirmar o sinal</div><h3><span>Bermuda Masculina Linho</span></h3><p class="why"><b>Por quê:</b> é o caso em que as duas fontes apontam a mesma peça nesta semana: ROAS mais alto da janela sobre uma compra atribuída pela Meta, com o menor investimento entre os anúncios com compra, e <span>1</span> unidade registrada no Google Analytics, com <span>14</span> carrinhos em <span>176</span> visualizações.</p><p class="why"><b>Oportunidade:</b> dar mais entrega ao mesmo ângulo antes de abrir variações, para ver se o sinal se sustenta com amostra maior.</p><p class="why"><b>Referência:</b> o criativo de ângulo sobre look de verão com a bermuda de linho.</p></div>
+    <div class="b"><div class="p">Identificar antes de ampliar</div><h3><span>Camisa Masculina Puro Linho - Manga Longa</span></h3><p class="why"><b>Por quê:</b> é a peça mais vista do Google Analytics nesta semana — <span>571</span> visualizações e <span>9</span> carrinhos, sem nenhuma unidade registrada —, e os dois anúncios de manga longa com compra atribuída não dizem qual das duas camisas de manga longa apresentam.</p><p class="why"><b>Oportunidade:</b> identificar a peça no próprio anúncio e conferir se anúncio e página mostram a mesma camisa, antes de produzir mais conteúdo de manga longa.</p><p class="why"><b>Referência:</b> os dois sinais de manga longa desta semana, um com ângulo sobre linho de qualidade e outro sobre manga longa no calor.</p></div>
+    <div class="b"><div class="p">Observar com mais entrega</div><h3><span>CAMISETA CLASSIC</span></h3><p class="why"><b>Por quê:</b> juntou o maior número de carrinhos da semana sem registrar unidade: <span>35</span> carrinhos em <span>189</span> visualizações no Google Analytics, e a peça não aparece em nenhum dos anúncios com compra atribuída nesta semana.</p><p class="why"><b>Oportunidade:</b> testar um criativo dedicado à peça e acompanhar se o interesse registrado no Google Analytics passa a virar unidade; com esse volume, a leitura atual é hipótese.</p><p class="why"><b>Referência:</b> não há sinal próprio da peça entre os destaques; a referência de estrutura é o ângulo único, formato comum aos quatro anúncios que registraram compra.</p></div>
+  </div>
+</section>
+
+<div style="padding-block:40px 24px;border-top:1px solid var(--line);text-align:center">
+  <div class="eyebrow" style="color:var(--sage)"><span>Mani</span> · Criativos &amp; Produtos</div>
+  <p class="muted" style="font-size:.84rem;margin-top:6px">Edição semanal · <span>16/11</span>–<span>22/11/2026</span></p>
+</div>
+
+</div>
+
+</body>
+</html>
